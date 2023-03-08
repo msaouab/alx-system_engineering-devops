@@ -1,1 +1,16 @@
-0 string SCHOOL School data file
+#!/bin/bash
+
+# set the path to your magic file
+MAGIC_FILE=/path/to/school.mgc
+
+# loop through all files in the current directory
+for file in *
+do
+  # check if the file is a School data file
+  if file -m $MAGIC_FILE $file | grep -q "School data file"
+  then
+    echo "$file is a School data file"
+  else
+    echo "$file is not a School data file"
+  fi
+done
